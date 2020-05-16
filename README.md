@@ -26,3 +26,11 @@ This will run the GUI and display the graph with the acceleration of the launch 
 ### Payload GUI Changes
 
 ### Avionics GUI Changes
+
+After the Code Review, there were a lot of good feedback that was given that would help teams in the future be able to understand our code. The changes that I made are:
+
+* Added more comments
+* Renamed Functions
+* Virtual Environments
+
+##### Test
