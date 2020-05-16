@@ -13,10 +13,15 @@ The Avionics GUI can be ran by downloading the GUI folder and running the follow
 Make sure Python | PIP | virtualenv are all installed or else this won't work. 
 
 python -m venv env
+
 virtualenv .env
+
 source .env/bin/activate
+
 cd GUI
+
 pip install -r requirements.txt
+
 python3 gui.py
 
 This will run the GUI and display the graph with the acceleration of the launch vehicle. Once you close the GUI, your default browser will open up with the plots on a map showcasing the locations of the launch vehicle.
