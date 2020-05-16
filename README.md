@@ -31,6 +31,13 @@ After the Code Review, there were a lot of good feedback that was given that wou
 
 * Added more comments
 * Renamed Functions
-* Virtual Environments
+* Virtual Environment
 
-##### Test
+#### Comments
+I added more comments that way readers are able to go through the code and be able to understand what each part is doing. 
+
+#### Renamed Functions
+Since I was assigned the Avionics GUI late in the Capstone year, I had poor functions name that only I would be able to understand. Instead of having that, I went through and changed some of the function names so that everyone will be able to have a better understanding of what each function is suppose to be doing. 
+
+#### Virtual Environment
+In the code review it was mentioned that when other teams tried to run the Python GUI, they did not seem the same results as I did and instead ran into errors. The reason for these errors were because these individuals needed to go through and download every Python library I installed to be able to make the GUI work. Instead of putting the burden on the reviewer to waste their time and find all the different libraries, I provided the steps to create a virtual environment where the reviewer does not have to waste anytime in downloading the libraries and can go straight to reviewing the code. 
