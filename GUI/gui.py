@@ -18,7 +18,6 @@ lon = []
 fig = plt.figure(figsize=(5,5))
 ax = fig.add_subplot(111)
 graph = FigureCanvasTkAgg(fig,root)
-# graph.get_tk_widget().pack()
 ax.plot(datetime,altitude,'b')
 plt.title('Date Time vs Altitude')
 plt.xlabel('Date Time')
@@ -28,7 +27,7 @@ plt.xticks(rotation=45, ha='right')
 
 
 
-
+# Where the X-Acceleration is going to shown.
 xText = tk.Label(root, text=1, font=('', 20))
 xText.pack()
 xText['text'] = "X-Acceleration"
@@ -37,7 +36,7 @@ xText['text'] = "X-Acceleration"
 xLabel = tk.Label(root, text=1, font=('', 20))
 xLabel.pack()
 
-
+# Where the Y-Acceleration is going to be shown.
 yText = tk.Label(root, text=1, font=('', 20))
 yText.pack()
 yText['text'] = "Y-Acceleration"
@@ -45,6 +44,7 @@ yText['text'] = "Y-Acceleration"
 yLabel = tk.Label(root, text=1, font=('', 20))
 yLabel.pack()
 
+# Where the Z-Acceleration is going to be shwon.
 zText = tk.Label(root, text=1, font=('', 20))
 zText.pack()
 zText['text'] = "Z-Acceleration"
@@ -53,7 +53,7 @@ zLabel = tk.Label(root, text=1, font=('', 20))
 zLabel.pack()
 
 
-
+# Gets the data required for the X-acceleration.
 def x(num):
     with open('test.csv') as csv_file:
         csv_reader = csv.reader(csv_file)
@@ -61,7 +61,7 @@ def x(num):
         data = rows[num]
         print("X-Acceleration: ", data[5])
         return data[5]
-
+# Gets the data required for the Y-Acceleration.
 def y(num):
     with open('test.csv') as csv_file:
         csv_reader = csv.reader(csv_file)
@@ -70,7 +70,7 @@ def y(num):
         data = rows[num]
         print("Y-Acceleration: ", data[6])
         return data[6]
-
+# Gets the data required for the Z-Acceleration.
 def z(num):
     with open('test.csv') as csv_file:
         csv_reader = csv.reader(csv_file)
@@ -80,25 +80,26 @@ def z(num):
         return data[7]
 
 
-
-def printSomething(count = 0):
+# Prints the information onto the GUI that it has read from the CSV file.
+# This includes the X, Y, and Z acceleration as well as ploting the Altitude on a graph.
+def printInformation(count = 0):
     if count is 0:
         xLabel['text'] = 0
         yLabel['text'] = 0
         zLabel['text'] = 0
-        test(0)
+        graphPlot(0)
     else:
         xLabel['text'] = x(count)
         yLabel['text'] = y(count)
         zLabel['text'] = z(count)
-        test(count)
+        graphPlot(count)
         print("-------------------------------------------------")
-    root.after(500, printSomething, count+1)
+    root.after(500, printInformation, count+1)
 
 
 
 
-
+# Gets the row that we will be working with.
 def getInfo(num):
     with open('test.csv') as csv_file:
         csv_reader = csv.reader(csv_file)
@@ -106,8 +107,8 @@ def getInfo(num):
         data = rows[num]
         return data
 
-
-def test(num):
+# Plots the Altitude graph.
+def graphPlot(num):
     global datetime
     global altitude
     global lat
@@ -133,6 +134,6 @@ def test(num):
 
 
 
-printSomething()
+printInformation()
 root.mainloop()
-display(lat,lon)
+display(lat,lon, lat[0], lon[0])

@@ -3,8 +3,10 @@ import tkinter as tk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import csv
 
-
-def display(lat,lon):
+# This will display the plots on a map.
+# It will open up your default browser and show the map using mapbox.
+# This function is called from the main function where it will be passed in the latitude and longitude from each reading.
+def display(lat,lon, startLat, startLon):
     mapbox_access_token = open("mapbox_token").read()
 
 
@@ -25,8 +27,8 @@ def display(lat,lon):
             accesstoken=mapbox_access_token,
             bearing=0,
             center=go.layout.mapbox.Center(
-                lat=43.799088,
-                lon=-120.650253
+                lat=float(startLat),
+                lon=float(startLon)
             ),
             pitch=0,
             zoom=25
